@@ -1,9 +1,11 @@
+import os
 import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+port = int(os.environ.get("PORT", 5000))
 
 # to get a post by id
 # the id is gonna be in the header
