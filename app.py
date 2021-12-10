@@ -6,6 +6,7 @@ from werkzeug.exceptions import abort
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 port = int(os.environ.get("PORT", 5000))
+app.run(host='0.0.0.0')
 
 # to get a post by id
 # the id is gonna be in the header
@@ -38,7 +39,7 @@ def post(post_id):
     post = get_post(post_id)
     return render_template('post.html', post=post)
 
-# post létrehozására a route
+
 @app.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
@@ -56,7 +57,6 @@ def create():
             return redirect(url_for('index'))
     return render_template('create.html')
 
-#post szerkesztése
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
     post = get_post(id)
@@ -78,8 +78,6 @@ def edit(id):
 
     return render_template('edit.html', post=post)
 
-#post törlése
-# ....
 
 @app.route('/<int:id>/delete', methods=('POST',))
 def delete(id):
