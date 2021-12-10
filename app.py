@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 port = int(os.environ.get("PORT", 5000))
-app.run(host='0.0.0.0')
+
 
 # to get a post by id
 # the id is gonna be in the header
