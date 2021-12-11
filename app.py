@@ -5,7 +5,6 @@ from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
-port = int(os.environ.get("PORT", 5000))
 
 
 # to get a post by id
